@@ -5,11 +5,12 @@ import PostPreview from '@/components/PostPreview';
 import { PostInfo } from '@/interfaces/post';
 import client from '@/lib/sanity-client';
 import { useState } from 'react';
+import LoadingSkeleton from '../LoadingSkeleton';
 
 export default function Search() {
   const [search, setSearch] = useState('');
   const [posts, setPosts] = useState<PostInfo[]>([]);
-  console.log('🚀 ~ file: page.tsx:12 ~ Search ~ posts', posts);
+  const [loading, setLoading] = useState(false);
 
   const getPosts = async (title: string) => {
     const posts = await client.fetch(
@@ -24,6 +25,7 @@ export default function Search() {
     );
 
     setPosts(posts);
+    setLoading(false);
   };
 
   return (
@@ -40,14 +42,19 @@ export default function Search() {
           onChange={e => setSearch(e.target.value)}
           onKeyDown={e => {
             if (e.key === 'Enter') {
-              console.log('Hello');
-
+              setLoading(true);
               getPosts(search);
             }
           }}
         />
       </div>
-      <PostPreview content={posts} limit={10} />
+      {loading ? (
+        <div className='mt-5'>
+          <LoadingSkeleton />
+        </div>
+      ) : (
+        <PostPreview content={posts} limit={10} />
+      )}
     </>
   );
 }
