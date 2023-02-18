@@ -5,7 +5,7 @@ import TagView from './TagView';
 const getTags = async () => {
   const res: [{ name: string }] = await client.fetch(
     `*[_type == "tag"]{name}`,
-    { cache: 'no-store' },
+    { next: { revalidate: 30 } },
   );
   return res.map(item => item.name);
 };

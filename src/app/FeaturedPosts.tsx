@@ -19,7 +19,7 @@ const getFeaturedPosts = async () => {
       _createdAt,
       tags
     }`,
-      { cache: 'no-store' },
+      { next: { revalidate: 30 } },
     )
     .then(res => {
       post = res.sort(

@@ -14,7 +14,7 @@ const getRecentPosts = async () => {
       readTime,
       _createdAt,
     }`,
-    { cache: 'no-store' },
+    { next: { revalidate: 30 } },
   );
 
   return posts;
