@@ -5,6 +5,7 @@ import { PostInfo } from '@/interfaces/post';
 import client from '@/lib/sanity-client';
 import { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import LoadingSkeleton from '../LoadingSkeleton';
 
 export default function PostView() {
   const [posts, setPosts] = useState<PostInfo[]>([]);
@@ -20,7 +21,7 @@ export default function PostView() {
       _id,
       title,
       shortDesc,
-      createdAt,
+      _createdAt,
       readTime
       }`,
       );
@@ -64,7 +65,11 @@ export default function PostView() {
   return (
     <>
       <div className='min-h-[30vh]'>
-        <PostPreview content={filterPosts} limit={3} />
+        {posts.length != 0 ? (
+          <PostPreview content={filterPosts} limit={3} />
+        ) : (
+          <LoadingSkeleton />
+        )}
       </div>
       <div className='mt-72 flex w-5/6 justify-center gap-16'>
         <button
