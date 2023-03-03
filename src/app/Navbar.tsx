@@ -1,6 +1,6 @@
-import HorizontalDivider from '@/components/HorizontalDivider';
 import Link from 'next/link';
 import { FiSearch } from 'react-icons/fi';
+import HorizontalDivider from './HorizontalDivider';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {

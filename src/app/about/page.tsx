@@ -1,7 +1,11 @@
-// import Breadcrumbs from '@/components/Breadcrumbs';
-import Breadcrumb from '@/components/Breadcrumb';
+import Breadcrumb from '@/app/Breadcrumb';
+import { Metadata } from 'next';
 import Image from 'next/image';
-// import { items } from './items';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'About page of the website',
+};
 
 export default function About() {
   return (

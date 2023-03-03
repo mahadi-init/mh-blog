@@ -1,11 +1,7 @@
-import PostPreview from '@/components/PostPreview';
 import { PostData, PostInfo } from '@/interfaces/post';
 import client from '@/lib/sanity-client';
+import PostPreview from './PostPreview';
 
-/**
- * Fetches the featured posts from Sanity CMS and returns them as an array
- * @returns an array of posts
- */
 const getFeaturedPosts = async () => {
   let post: PostInfo[] = [];
 
@@ -21,12 +17,12 @@ const getFeaturedPosts = async () => {
     }`,
       { next: { revalidate: 30 } },
     )
-    .then(res => {
+    .then((res) => {
       post = res.sort(
         (a: PostData, b: PostData) => b.tags.length - a.tags.length,
       );
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 
   return post;
 };

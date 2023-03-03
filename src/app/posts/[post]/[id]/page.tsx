@@ -7,6 +7,16 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import GoBack from './GoBack';
 
+export async function generateMetadata({ params: { post } }: any) {
+  const convert = new Convert();
+  const title = `${convert.slugToString(post)}`;
+
+  return {
+    title,
+    description: `Posts page of the app`,
+  };
+}
+
 const getPost = async (id: string) => {
   const post = await client.fetch(
     `*[_type == "post" && _id == $id]{
