@@ -4,7 +4,6 @@ export default function Error({ reset }: { reset: () => void }) {
   return (
     <div>
       <h2>Something went wrong!</h2>
-      {/* <button className="" onClick={() => reset()}>Try again</button> */}
       <button
         type='button'
         className='mr-2 mt-5 mb-2 rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-800 

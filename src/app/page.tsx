@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import FeaturedPosts from './FeaturedPosts';
 import RecentPosts from './RecentPosts';
-import HorizontalDivider from '@/components/HorizontalDivider';
+import HorizontalDivider from './HorizontalDivider';
 
 export default function Home() {
   return (

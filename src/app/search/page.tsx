@@ -1,11 +1,11 @@
 'use client';
 
-import Breadcrumb from '@/components/Breadcrumb';
-import PostPreview from '@/components/PostPreview';
+import Breadcrumb from '@/app/Breadcrumb';
 import { PostInfo } from '@/interfaces/post';
 import client from '@/lib/sanity-client';
 import { useState } from 'react';
 import LoadingSkeleton from '../LoadingSkeleton';
+import PostPreview from '../PostPreview';
 
 export default function Search() {
   const [search, setSearch] = useState('');
@@ -39,8 +39,8 @@ export default function Search() {
           placeholder='search for anything'
           className='mb-2 w-5/6 rounded-md dark:text-black'
           value={search}
-          onChange={e => setSearch(e.target.value)}
-          onKeyDown={e => {
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
             if (e.key === 'Enter') {
               setLoading(true);
               getPosts(search);

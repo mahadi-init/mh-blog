@@ -1,11 +1,11 @@
 'use client';
 
-import PostPreview from '@/components/PostPreview';
 import { PostInfo } from '@/interfaces/post';
 import client from '@/lib/sanity-client';
 import { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import LoadingSkeleton from '../LoadingSkeleton';
+import PostPreview from '../PostPreview';
 
 export default function PostView() {
   const [posts, setPosts] = useState<PostInfo[]>([]);

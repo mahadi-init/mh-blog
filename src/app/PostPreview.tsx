@@ -14,7 +14,7 @@ export default function PostPreview({
 
   return (
     <div className='mt-5 flex flex-col gap-12'>
-      {content.slice(0, limit).map(item => (
+      {content.slice(0, limit).map((item) => (
         <div key={item._id}>
           <Link
             href={`/posts/${convert.stringToSlug(item.title)}/${item._id}`}

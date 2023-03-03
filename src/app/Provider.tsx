@@ -4,11 +4,6 @@ import { ThemeProvider } from 'next-themes';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
-/**
- * create a theme provider for the app
- * @param param0 {React.ReactNode} children - The children to render inside the provider
- * @returns The provider component with the children inside it
- */
 export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute='class'>

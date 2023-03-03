@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { MdArrowBackIos } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
@@ -8,7 +8,7 @@ export default function GoBack() {
 
   return (
     <span
-      className="cursor-pointer flex items-center gap-2 hover:text-gray-400"
+      className='flex cursor-pointer items-center gap-2 hover:text-gray-400'
       onClick={() => router.back()}
     >
       <MdArrowBackIos />

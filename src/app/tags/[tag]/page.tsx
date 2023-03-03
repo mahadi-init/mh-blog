@@ -1,28 +1,15 @@
-import Breadcrumb from '@/components/Breadcrumb';
-import PostPreview from '@/components/PostPreview';
-// import { posts } from '@/data/posts';
-import client from '@/lib/sanity-client';
+import Breadcrumb from '@/app/Breadcrumb';
+import PostPreview from '@/app/PostPreview';
 import { Convert } from '@/util/Convert';
+import getPostsByTag from './get-posts-by-tag';
 
-const tagQuery = `*[_type == 'tag' && name == $tagName][0]._id`;
-const postQuery = `*[_type == 'post' && references($tagId)]{
-    _id,
+export async function generateMetadata({ params: { tag } }: any) {
+  const title = `Tag | ${tag}`;
+
+  return {
     title,
-    shortDesc,
-    readTime,
-    table,
-    content,
-    tags
-}`;
-
-async function getPostsByTag(tagName: string) {
-  try {
-    const tagId = await client.fetch(tagQuery, { tagName });
-    const posts = await client.fetch(postQuery, { tagId });
-    return posts;
-  } catch (err) {
-    console.error(err);
-  }
+    description: `All the articles with the tag "${tag}"`,
+  };
 }
 
 export default async function Tag({ params }: any) {

@@ -1,10 +1,6 @@
-import PostPreview from '@/components/PostPreview';
 import client from '@/lib/sanity-client';
+import PostPreview from './PostPreview';
 
-/**
- * Fetches the recent posts from Sanity CMS and returns them as an array
- * @returns an array of posts
- */
 const getRecentPosts = async () => {
   const posts = await client.fetch(
     `*[_type == "post"] | order(_createdAt desc){
