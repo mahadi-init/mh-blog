@@ -1,3 +1,4 @@
+import authorData from '@/data/author-data';
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 
@@ -12,16 +13,16 @@ export default function Footer() {
           <p className='relative -top-3 md:-top-0'>All rights reserved.</p>
         </div>
         <div className='relative -top-3 flex gap-8 md:-top-0'>
-          <a href='https://www.facebook.com/'>
+          <a href={authorData.social.github}>
             <FaGithub size={20} />
           </a>
-          <a href='https://www.facebook.com/'>
+          <a href={authorData.social.facebook}>
             <FaFacebook size={20} />
           </a>
-          <a href='https://www.instagram.com/'>
+          <a href={authorData.social.instagram}>
             <FaInstagram size={20} />
           </a>
-          <a href='https://www.twitter.com/'>
+          <a href={authorData.social.linkedin}>
             <FaLinkedin size={20} />
           </a>
         </div>
