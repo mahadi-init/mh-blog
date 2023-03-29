@@ -9,8 +9,7 @@ const getRecentPosts = async () => {
       shortDesc,
       readTime,
       _createdAt,
-    }`,
-    { next: { revalidate: 30 } },
+    }`
   );
 
   return posts;
