@@ -9,7 +9,7 @@ const getRecentPosts = async () => {
       shortDesc,
       readTime,
       _createdAt,
-    }`
+    }`,
   );
 
   return posts;
@@ -21,7 +21,7 @@ export default async function RecentPosts() {
   return (
     <>
       <h1 className='text-2xl font-semibold'>Recent Posts</h1>
-      <PostPreview content={posts} limit={4} />
+      <PostPreview content={posts} limit={3} />
     </>
   );
 }
