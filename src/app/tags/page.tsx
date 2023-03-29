@@ -3,16 +3,16 @@ import client from '@/lib/sanity-client';
 import { Metadata } from 'next';
 import TagView from './TagView';
 
+// revalidate after 30 seconds
+export const revalidate = 30;
+
 export const metadata: Metadata = {
   title: 'Tags',
   description: 'Tags page of the website',
 };
 
 const getTags = async () => {
-  const res: [{ name: string }] = await client.fetch(
-    `*[_type == "tag"]{name}`,
-    { next: { revalidate: 30 } },
-  );
+  const res: [{ name: string }] = await client.fetch(`*[_type == "tag"]{name}`);
   return res.map((item) => item.name);
 };
 

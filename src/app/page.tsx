@@ -5,6 +5,9 @@ import FeaturedPosts from './FeaturedPosts';
 import RecentPosts from './RecentPosts';
 import HorizontalDivider from './HorizontalDivider';
 
+//revalidate after 30 seconds
+export const revalidate = 30;
+
 export default function Home() {
   return (
     <main>

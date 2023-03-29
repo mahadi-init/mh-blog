@@ -2,7 +2,10 @@ import dayjs from 'dayjs';
 
 export class Convert {
   dateToTime(time: Date | string) {
-    return dayjs(time).format('DD-MM-YY hh:mm:ss A');
+    const t = time.toLocaleString('en-US', {
+      timeZone: 'Asia/Dhaka',
+    });
+    return dayjs(t).format('DD-MM-YY hh:mm:ss A');
   }
 
   stringToSlug = (text: string) => {

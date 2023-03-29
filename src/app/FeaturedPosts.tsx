@@ -15,7 +15,6 @@ const getFeaturedPosts = async () => {
       _createdAt,
       tags
     }`,
-      { next: { revalidate: 30 } },
     )
     .then((res) => {
       post = res.sort(
